@@ -29,15 +29,16 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+ 
     try {
       const { data } = await addUser({
-        variables: { ...userFormData }
+       variables: { ...userFormData }
       });
-    
+    console.log(data);
+   
       Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
 
     setUserFormData({
@@ -70,34 +71,34 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Your email address'
-            name='email'
+            type="email"
+            placeholder="Your email address"
+            name="email"
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">Email is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
+            type="password"
+            placeholder="Your password"
+            name="password"
             onChange={handleInputChange}
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
+          type="submit"
+          variant="success">
           Submit
         </Button>
          {error && <div>Sign up failed</div>}
