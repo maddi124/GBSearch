@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 
-app.use(routes);
+//app.use(routes);
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
