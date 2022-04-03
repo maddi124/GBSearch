@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3001;
 
 server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 
@@ -30,7 +30,7 @@ app.use(routes);
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use('/static', express.static(path.join(__dirname, 'client/build')));
 }
 
 app.get('*', (req, res) => {
