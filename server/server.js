@@ -17,7 +17,6 @@ const PORT = process.env.PORT || 3001;
     resolvers, 
     context: authMiddleware,
     introspection: true
-     
   });
 
 server.applyMiddleware({ app });
