@@ -12,8 +12,6 @@ const db = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-// const startServer = async () => {
  
   const server = new ApolloServer({ 
     typeDefs, 
@@ -23,14 +21,7 @@ const PORT = process.env.PORT || 3001;
      
   });
 
- // await server.start();
-
-  server.applyMiddleware({ app });
-
-
-// };
-
-//startServer();
+server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
