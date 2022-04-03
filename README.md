@@ -14,6 +14,8 @@ Create an Apollo Provider so that requests can communicate with an Apollo Server
 
 Deploy the application to Heroku.
 
+CHECK OUT HEROKU PAGE [HERE](https://whispering-tundra-68049.herokuapp.com/)
+
 ![local](/client/src/assets/images/local.png)
 
 # Table of contents
@@ -23,7 +25,12 @@ Deploy the application to Heroku.
 [Acceptance Criteria](#Acceptance-Criteria)<br>
 [Credits](#Credits)<br>
 
+## Problem that I had:
+I had a problem when I deployed it to heroku, the page backend would display but the frontend would not.
 
+![Heroku page](/client/src/assets/images/heroku.png)    
+ to fix this I simply commented out `//app.use(routes);` in server.js in the server folder. This fix the problem that I had with heroku 
+ ![Heroku page working](/client/src/assets/images/herokuworking.png)  
 # Installation
 ```
 To create a react project: run
